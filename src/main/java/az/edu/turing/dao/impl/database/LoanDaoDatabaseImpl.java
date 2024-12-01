@@ -1,8 +1,8 @@
-package dao.impl.database;
+package az.edu.turing.dao.impl.database;
 
-import config.DatabaseConfig;
-import dao.abstracts.LoanDao;
-import entity.Loan;
+import az.edu.turing.config.DatabaseConfig;
+import az.edu.turing.dao.abstracts.LoanDao;
+import az.edu.turing.entity.Loan;
 
 import java.io.IOException;
 

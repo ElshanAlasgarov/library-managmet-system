@@ -1,13 +1,13 @@
-package service.impl;
+package az.edu.turing.service.impl;
 
-import dao.abstracts.BookDao;
-import dao.abstracts.LoanDao;
-import dao.abstracts.ReaderDao;
-import entity.Book;
-import entity.Loan;
-import exception.LoanNotFoundException;
-import exception.ValidationException;
-import service.LoanService;
+import az.edu.turing.dao.abstracts.BookDao;
+import az.edu.turing.dao.abstracts.LoanDao;
+import az.edu.turing.dao.abstracts.ReaderDao;
+import az.edu.turing.entity.Book;
+import az.edu.turing.entity.Loan;
+import az.edu.turing.exception.LoanNotFoundException;
+import az.edu.turing.exception.ValidationException;
+import az.edu.turing.service.LoanService;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;

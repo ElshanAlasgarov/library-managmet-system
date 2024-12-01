@@ -1,4 +1,4 @@
-package entity;
+package az.edu.turing.entity;
 
 public class Reader {
     private int id;

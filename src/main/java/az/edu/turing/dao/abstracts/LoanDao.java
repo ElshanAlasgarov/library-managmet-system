@@ -1,7 +1,7 @@
-package dao.abstracts;
+package az.edu.turing.dao.abstracts;
 
-import dao.Dao;
-import entity.Loan;
+import az.edu.turing.dao.Dao;
+import az.edu.turing.entity.Loan;
 
 import java.util.List;
 

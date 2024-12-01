@@ -1,10 +1,10 @@
-package service.impl;
+package az.edu.turing.service.impl;
 
-import dao.abstracts.BookDao;
-import entity.Book;
-import exception.BookNotFoundException;
-import service.BookService;
-import exception.ValidationException;
+import az.edu.turing.dao.abstracts.BookDao;
+import az.edu.turing.entity.Book;
+import az.edu.turing.exception.BookNotFoundException;
+import az.edu.turing.service.BookService;
+import az.edu.turing.exception.ValidationException;
 import java.util.List;
 import java.util.Optional;
 

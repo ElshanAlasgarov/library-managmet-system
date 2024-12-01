@@ -1,7 +1,7 @@
-package dao.abstracts;
+package az.edu.turing.dao.abstracts;
 
-import dao.Dao;
-import entity.Book;
+import az.edu.turing.dao.Dao;
+import az.edu.turing.entity.Book;
 
 public abstract class BookDao implements Dao<Book,Integer> {
 }

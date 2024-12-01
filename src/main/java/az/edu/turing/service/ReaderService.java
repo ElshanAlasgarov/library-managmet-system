@@ -1,6 +1,6 @@
-package service;
+package az.edu.turing.service;
 
-import entity.Reader;
+import az.edu.turing.entity.Reader;
 import java.util.List;
 
 public interface ReaderService {

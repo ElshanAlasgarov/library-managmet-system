@@ -1,9 +1,9 @@
-package ui;
+package az.edu.turing.ui;
 
-import controller.BookController;
-import controller.LoanController;
-import controller.ReaderController;
-import model.dto.BookDTO;
+import az.edu.turing.controller.BookController;
+import az.edu.turing.controller.LoanController;
+import az.edu.turing.controller.ReaderController;
+import az.edu.turing.model.dto.BookDTO;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package model.dto;
+package az.edu.turing.model.dto;
 
 import java.time.LocalDate;
 

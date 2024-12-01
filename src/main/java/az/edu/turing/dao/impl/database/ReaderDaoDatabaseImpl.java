@@ -1,8 +1,8 @@
-package dao.impl.database;
+package az.edu.turing.dao.impl.database;
 
-import config.DatabaseConfig;
-import dao.abstracts.ReaderDao;
-import entity.Reader;
+import az.edu.turing.config.DatabaseConfig;
+import az.edu.turing.dao.abstracts.ReaderDao;
+import az.edu.turing.entity.Reader;
 
 import java.io.IOException;
 import java.sql.Connection;

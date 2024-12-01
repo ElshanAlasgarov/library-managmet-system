@@ -1,4 +1,4 @@
-package dao;
+package az.edu.turing.dao;
 
 import java.util.List;
 import java.util.Optional;

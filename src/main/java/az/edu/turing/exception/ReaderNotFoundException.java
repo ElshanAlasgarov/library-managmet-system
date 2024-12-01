@@ -1,4 +1,4 @@
-package exception;
+package az.edu.turing.exception;
 
 public class ReaderNotFoundException extends RuntimeException{
 

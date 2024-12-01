@@ -1,4 +1,4 @@
-package entity;
+package az.edu.turing.entity;
 
 import java.time.LocalDate;
 import java.util.Date;

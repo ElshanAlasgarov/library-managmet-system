@@ -1,17 +1,16 @@
-import config.DatabaseConfig;
-import controller.BookController;
-import controller.LoanController;
-import controller.ReaderController;
-import dao.abstracts.BookDao;
-import dao.impl.database.BookDaoDatabaseImpl;
-import dao.impl.database.LoanDaoDatabaseImpl;
-import dao.impl.database.ReaderDaoDatabaseImpl;
-import entity.Book;
-import service.BookService;
-import service.impl.BookServiceImpl;
-import service.impl.LoanServiceImpl;
-import service.impl.ReaderServiceImpl;
-import ui.MainMenu;
+package az.edu.turing;
+
+import az.edu.turing.config.DatabaseConfig;
+import az.edu.turing.controller.BookController;
+import az.edu.turing.controller.LoanController;
+import az.edu.turing.controller.ReaderController;
+import az.edu.turing.dao.impl.database.BookDaoDatabaseImpl;
+import az.edu.turing.dao.impl.database.LoanDaoDatabaseImpl;
+import az.edu.turing.dao.impl.database.ReaderDaoDatabaseImpl;
+import az.edu.turing.service.impl.BookServiceImpl;
+import az.edu.turing.service.impl.LoanServiceImpl;
+import az.edu.turing.service.impl.ReaderServiceImpl;
+import az.edu.turing.ui.MainMenu;
 
 import java.sql.Connection;
 

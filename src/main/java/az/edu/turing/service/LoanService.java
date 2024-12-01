@@ -1,6 +1,6 @@
-package service;
+package az.edu.turing.service;
 
-import entity.Loan;
+import az.edu.turing.entity.Loan;
 
 import java.util.List;
 

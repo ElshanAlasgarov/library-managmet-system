@@ -1,10 +1,10 @@
-package controller;
+package az.edu.turing.controller;
 
-import entity.Book;
-import exception.BookNotFoundException;
-import exception.ValidationException;
-import model.dto.BookDTO;
-import service.BookService;
+import az.edu.turing.entity.Book;
+import az.edu.turing.exception.BookNotFoundException;
+import az.edu.turing.exception.ValidationException;
+import az.edu.turing.model.dto.BookDTO;
+import az.edu.turing.service.BookService;
 
 import java.util.List;
 import java.util.stream.Collectors;

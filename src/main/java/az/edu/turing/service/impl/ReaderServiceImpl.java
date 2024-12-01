@@ -1,10 +1,10 @@
-package service.impl;
+package az.edu.turing.service.impl;
 
-import dao.abstracts.ReaderDao;
-import entity.Reader;
-import exception.ReaderNotFoundException;
-import exception.ValidationException;
-import service.ReaderService;
+import az.edu.turing.dao.abstracts.ReaderDao;
+import az.edu.turing.entity.Reader;
+import az.edu.turing.exception.ReaderNotFoundException;
+import az.edu.turing.exception.ValidationException;
+import az.edu.turing.service.ReaderService;
 
 import java.util.List;
 import java.util.Optional;

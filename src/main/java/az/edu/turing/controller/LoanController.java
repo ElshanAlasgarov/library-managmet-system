@@ -1,10 +1,10 @@
-package controller;
+package az.edu.turing.controller;
 
-import entity.Loan;
-import exception.LoanNotFoundException;
-import exception.ValidationException;
-import model.dto.LoanDTO;
-import service.LoanService;
+import az.edu.turing.entity.Loan;
+import az.edu.turing.exception.LoanNotFoundException;
+import az.edu.turing.exception.ValidationException;
+import az.edu.turing.model.dto.LoanDTO;
+import az.edu.turing.service.LoanService;
 
 import java.util.List;
 import java.util.stream.Collectors;

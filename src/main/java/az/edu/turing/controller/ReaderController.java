@@ -1,9 +1,9 @@
-package controller;
+package az.edu.turing.controller;
 
-import entity.Reader;
-import exception.ValidationException;
-import model.dto.ReaderDTO;
-import service.ReaderService;
+import az.edu.turing.entity.Reader;
+import az.edu.turing.exception.ValidationException;
+import az.edu.turing.model.dto.ReaderDTO;
+import az.edu.turing.service.ReaderService;
 
 import java.util.List;
 import java.util.stream.Collectors;

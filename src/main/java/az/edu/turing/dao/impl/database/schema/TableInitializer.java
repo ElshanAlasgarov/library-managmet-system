@@ -1,4 +1,4 @@
-package dao.impl.database.schema;
+package az.edu.turing.dao.impl.database.schema;
 
 import java.sql.Connection;
 import java.sql.Statement;
