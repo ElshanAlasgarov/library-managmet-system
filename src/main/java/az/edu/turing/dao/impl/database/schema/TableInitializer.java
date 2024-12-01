@@ -35,6 +35,7 @@ public class TableInitializer {
                     reader_id INT NOT NULL REFERENCES schema.reader(id) ON DELETE CASCADE,
                     borrow_date DATE NOT NULL,
                     return_date DATE
+                    )
                     """);
 
         }catch (Exception e){

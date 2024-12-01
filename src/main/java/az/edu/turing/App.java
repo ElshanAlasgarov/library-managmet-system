@@ -7,6 +7,7 @@ import az.edu.turing.controller.ReaderController;
 import az.edu.turing.dao.impl.database.BookDaoDatabaseImpl;
 import az.edu.turing.dao.impl.database.LoanDaoDatabaseImpl;
 import az.edu.turing.dao.impl.database.ReaderDaoDatabaseImpl;
+import az.edu.turing.dao.impl.database.schema.TableInitializer;
 import az.edu.turing.service.impl.BookServiceImpl;
 import az.edu.turing.service.impl.LoanServiceImpl;
 import az.edu.turing.service.impl.ReaderServiceImpl;
@@ -18,6 +19,7 @@ class App {
 
     public static void main(String[] args) {
 
+        TableInitializer.initialize(DatabaseConfig.getConnection());
         System.out.println("Welcome to the Library Management System!");
 
         Connection connection = DatabaseConfig.getConnection();

@@ -69,12 +69,12 @@ public class BookDaoDatabaseImpl extends BookDao {
 
     @Override
     public List<Book> getAll() {
-        String sql = "SELECT title, author, category, status FROM schema.books";
+        String sql = "SELECT id, title, author, category, status FROM schema.books";
 
         List<Book> books = new ArrayList<>();
-        try (Statement statement = connection.prepareStatement(sql)) {
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
 
-            ResultSet rs = statement.executeQuery(sql);
+            ResultSet rs = statement.executeQuery();
 
             while (rs.next()) {
                 books.add(new Book(

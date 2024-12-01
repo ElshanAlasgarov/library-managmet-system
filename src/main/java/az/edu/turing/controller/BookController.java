@@ -36,7 +36,11 @@ public class BookController {
     public List<BookDTO> getAllBooks() {
         List<Book> books = bookService.getAllBooks();
         return books.stream()
-                .map(book -> new BookDTO(book.getId(), book.getTitle(), book.getAuthor(), book.getCategory(), book.isStatus()))
+                .map(book -> new BookDTO(book.getId(),
+                        book.getTitle(),
+                        book.getAuthor(),
+                        book.getCategory(),
+                        book.isStatus()))
                 .collect(Collectors.toList());
     }
 
@@ -65,7 +69,7 @@ public class BookController {
                     updatedBook.getAuthor(),
                     updatedBook.getCategory(),
                     updatedBook.isStatus());
-        } catch (ValidationException e) {
+        } catch (ValidationException | BookNotFoundException e) {
             System.out.println("Error: " + e.getMessage());
             return null;
         }
