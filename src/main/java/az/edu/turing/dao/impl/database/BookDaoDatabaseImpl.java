@@ -1,16 +1,12 @@
 package az.edu.turing.dao.impl.database;
 
-import az.edu.turing.config.DatabaseConfig;
 import az.edu.turing.dao.abstracts.BookDao;
 import az.edu.turing.entity.Book;
-
-import java.io.IOException;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;

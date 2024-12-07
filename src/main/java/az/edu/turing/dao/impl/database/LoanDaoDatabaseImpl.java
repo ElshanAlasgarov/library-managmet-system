@@ -1,11 +1,7 @@
 package az.edu.turing.dao.impl.database;
 
-import az.edu.turing.config.DatabaseConfig;
 import az.edu.turing.dao.abstracts.LoanDao;
 import az.edu.turing.entity.Loan;
-
-import javax.swing.text.html.Option;
-import java.io.IOException;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -145,7 +141,7 @@ public class LoanDaoDatabaseImpl extends LoanDao {
 
     @Override
     public List<Loan> getByReaderID(int readerId) {
-        String sql = "SELECT * FROM loans WHERE reader_id = ?";
+        String sql = "SELECT * FROM schema.loans WHERE reader_id = ?";
         List<Loan> loans = new ArrayList<>();
 
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
