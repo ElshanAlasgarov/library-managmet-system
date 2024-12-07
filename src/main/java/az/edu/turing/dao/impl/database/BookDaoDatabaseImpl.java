@@ -44,7 +44,7 @@ public class BookDaoDatabaseImpl extends BookDao {
 
     @Override
     public Optional<Book> getById(Integer id) {
-        String sql = "SELECT title, author, category, status FROM schema.books WHERE id=?";
+        String sql = "SELECT id, title, author, category, status FROM schema.books WHERE id=?";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
 
             preparedStatement.setInt(1, id);

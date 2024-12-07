@@ -4,6 +4,7 @@ import az.edu.turing.config.DatabaseConfig;
 import az.edu.turing.dao.abstracts.LoanDao;
 import az.edu.turing.entity.Loan;
 
+import javax.swing.text.html.Option;
 import java.io.IOException;
 
 import java.sql.Connection;
@@ -60,12 +61,13 @@ public class LoanDaoDatabaseImpl extends LoanDao {
             ResultSet rs = pstmt.executeQuery();
 
             if (rs.next()) {
+                var returnDate = rs.getDate("return_date");
                 Loan loan = new Loan(
                         rs.getInt("id"),
                         rs.getInt("book_id"),
                         rs.getInt("reader_id"),
                         rs.getDate("borrow_date").toLocalDate(),
-                        rs.getDate("return_date").toLocalDate(),
+                        Optional.ofNullable(returnDate).map(Date::toLocalDate).orElse(null),
                         rs.getInt("penalty")
                 );
                 return Optional.of(loan);

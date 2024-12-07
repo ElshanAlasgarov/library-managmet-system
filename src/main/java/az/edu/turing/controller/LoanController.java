@@ -19,7 +19,12 @@ public class LoanController {
     public LoanDTO borrowBook(int bookId, int readerId) {
         try {
             Loan loan = loanService.borrowBook(bookId, readerId);
-            return new LoanDTO(loan.getId(), loan.getBookId(), loan.getReaderId(), loan.getBorrowDate(), loan.getReturnDate(), loan.getPenalty());
+            return new LoanDTO(loan.getId(),
+                    loan.getBookId(),
+                    loan.getReaderId(),
+                    loan.getBorrowDate(),
+                    loan.getReturnDate(),
+                    loan.getPenalty());
         } catch (ValidationException e) {
             System.out.println("Error: " + e.getMessage());
             return null;
@@ -29,7 +34,12 @@ public class LoanController {
     public LoanDTO returnBook(int loanId) {
         try {
             Loan loan = loanService.returnBook(loanId);
-            return new LoanDTO(loan.getId(), loan.getBookId(), loan.getReaderId(), loan.getBorrowDate(), loan.getReturnDate(), loan.getPenalty());
+            return new LoanDTO(loan.getId(),
+                    loan.getBookId(),
+                    loan.getReaderId(),
+                    loan.getBorrowDate(),
+                    loan.getReturnDate(),
+                    loan.getPenalty());
         } catch (LoanNotFoundException | ValidationException e) {
             System.out.println("Error: " + e.getMessage());
             return null;
@@ -39,7 +49,12 @@ public class LoanController {
     public List<LoanDTO> getLoansByReaderId(int readerId) {
         List<Loan> loans = loanService.getLoansByReaderId(readerId);
         return loans.stream()
-                .map(loan -> new LoanDTO(loan.getId(), loan.getBookId(), loan.getReaderId(), loan.getBorrowDate(), loan.getReturnDate(), loan.getPenalty()))
+                .map(loan -> new LoanDTO(loan.getId(),
+                        loan.getBookId(),
+                        loan.getReaderId(),
+                        loan.getBorrowDate(),
+                        loan.getReturnDate(),
+                        loan.getPenalty()))
                 .collect(Collectors.toList());
     }
 }

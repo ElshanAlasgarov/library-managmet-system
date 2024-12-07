@@ -32,9 +32,10 @@ public class TableInitializer {
                     CREATE TABLE IF NOT EXISTS schema.loans(
                     id SERIAL PRIMARY KEY,
                     book_id INT NOT NULL REFERENCES schema.books(id) ON DELETE CASCADE,
-                    reader_id INT NOT NULL REFERENCES schema.reader(id) ON DELETE CASCADE,
+                    reader_id INT NOT NULL REFERENCES schema.readers(id) ON DELETE CASCADE,
                     borrow_date DATE NOT NULL,
-                    return_date DATE
+                    return_date DATE,
+                    penalty BIGINT DEFAULT 0.0
                     )
                     """);
 

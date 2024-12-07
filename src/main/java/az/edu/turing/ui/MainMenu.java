@@ -350,7 +350,7 @@ public class MainMenu {
 
             LoanDTO loanDTO = loanController.borrowBook(bookID,readerID);
 
-            if (loanDTO == null){
+            if (loanDTO != null){
                 System.out.println("Book borrowed successfully!");
                 System.out.println("Loan ID: " + loanDTO.getId());
                 System.out.println("Borrow Date: " + loanDTO.getBorrowDate());
