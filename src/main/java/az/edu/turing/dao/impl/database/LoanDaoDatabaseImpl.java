@@ -89,7 +89,7 @@ public class LoanDaoDatabaseImpl extends LoanDao {
                         rs.getInt("book_id"),
                         rs.getInt("reader_id"),
                         rs.getDate("borrow_date").toLocalDate(),
-                        rs.getDate("return_date").toLocalDate(),
+                        rs.getDate("return_date") != null ? rs.getDate("return_date").toLocalDate() : null,
                         rs.getInt("penalty")
                 );
                 loans.add(loan);

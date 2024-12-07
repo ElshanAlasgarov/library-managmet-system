@@ -57,4 +57,16 @@ public class LoanController {
                         loan.getPenalty()))
                 .collect(Collectors.toList());
     }
+
+    public List<LoanDTO> getAll() {
+        List<Loan> loans = loanService.getAllLoans();
+        return loans.stream()
+                .map(loan -> new LoanDTO(loan.getId(),
+                        loan.getBookId(),
+                        loan.getReaderId(),
+                        loan.getBorrowDate(),
+                        loan.getReturnDate(),
+                        loan.getPenalty()))
+                .collect(Collectors.toList());
+    }
 }

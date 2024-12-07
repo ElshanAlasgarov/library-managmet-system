@@ -22,10 +22,10 @@ public class MainMenu {
         this.loanController = loanController;
     }
 
-    public void displayMenu(){
+    public void displayMenu() {
 
         Scanner scanner = new Scanner(System.in);
-        while (true){
+        while (true) {
             System.out.println("\nLibrary Managment System");
             System.out.println("1. Manage Books");
             System.out.println("2. Manage Readers");
@@ -35,7 +35,7 @@ public class MainMenu {
             int choice = scanner.nextInt();
             scanner.nextLine();
 
-            switch (choice){
+            switch (choice) {
                 case 1 -> manageBooks(scanner);
                 case 2 -> manageReaders(scanner);
                 case 3 -> manageLoans(scanner);
@@ -47,6 +47,7 @@ public class MainMenu {
             }
         }
     }
+
     private void manageBooks(Scanner scanner) {
         while (true) {
             System.out.println("\nManage Books Menu");
@@ -54,13 +55,14 @@ public class MainMenu {
             System.out.println("2. Update Book");
             System.out.println("3. Delete Book");
             System.out.println("4. View All Books");
-            System.out.println("5. Back to Main Menu");
+            System.out.println("5. Get book by id");
+            System.out.println("6. Back to Main Menu");
             System.out.println("Choose an option");
 
             int choice = scanner.nextInt();
             scanner.nextLine();
 
-            switch (choice){
+            switch (choice) {
                 case 1:
                     addBook(scanner);
                     break;
@@ -74,6 +76,9 @@ public class MainMenu {
                     viewAllBooks();
                     break;
                 case 5:
+                    getBookByID(scanner);
+                    break;
+                case 6:
                     return;
                 default:
                     System.out.println("Invalid choice! Please try again.");
@@ -81,7 +86,28 @@ public class MainMenu {
         }
     }
 
-    private void addBook(Scanner scanner){
+    private void getBookByID(Scanner scanner) {
+        System.out.println("\nGet Book");
+        try {
+            System.out.println("Enter book id: ");
+            int id = scanner.nextInt();
+            scanner.nextLine();
+
+            BookDTO getBook = bookController.getBookByID(id);
+
+            if (getBook != null) {
+                System.out.println("ID: " + getBook.getId() + ", Title: " + getBook.getTitle() +
+                        ", Author: " + getBook.getAuthor() + ", Category: " + getBook.getCategory());
+            } else {
+                System.out.println("Error getting book.");
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+
+
+    private void addBook(Scanner scanner) {
         System.out.println("\nAdd Book");
         try {
             System.out.print("Enter book title: ");
@@ -93,19 +119,20 @@ public class MainMenu {
             System.out.print("Enter book category: ");
             String category = scanner.nextLine();
 
-            BookDTO newBookDTO = new BookDTO(title,author,category);
+            BookDTO newBookDTO = new BookDTO(title, author, category);
             BookDTO addedBook = bookController.addBook(newBookDTO);
 
-            if (addedBook != null){
+            if (addedBook != null) {
                 System.out.println("Book added successfully!");
                 System.out.println("ID: " + addedBook.getId());
-            }else {
+            } else {
                 System.out.println("Error adding book.");
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
     }
+
     private void updateBook(Scanner scanner) {
         System.out.println("\nUpdate Book");
         try {
@@ -122,10 +149,10 @@ public class MainMenu {
             System.out.println("Enter new category: ");
             String category = scanner.nextLine();
 
-            BookDTO updatedBookDto = new BookDTO(id,title,author,category,true);
+            BookDTO updatedBookDto = new BookDTO(id, title, author, category, true);
             BookDTO updatedBook = bookController.updateBook(updatedBookDto);
 
-            if (updatedBook != null){
+            if (updatedBook != null) {
                 System.out.println("Book updated successfully!");
                 System.out.println("New details:");
                 System.out.println("ID: " + updatedBook.getId() + ", Title: " + updatedBook.getTitle() +
@@ -133,7 +160,7 @@ public class MainMenu {
             } else {
                 System.out.println("Error updating book.");
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
     }
@@ -176,7 +203,7 @@ public class MainMenu {
     }
 
     private void manageReaders(Scanner scanner) {
-        while (true){
+        while (true) {
             System.out.println("\nManage Readers Menu");
             System.out.println("1. Add Reader");
             System.out.println("2. Update Reader");
@@ -188,7 +215,7 @@ public class MainMenu {
             int choice = scanner.nextInt();
             scanner.nextLine();
 
-            switch (choice){
+            switch (choice) {
                 case 1:
                     addReader(scanner);
                     break;
@@ -221,16 +248,16 @@ public class MainMenu {
             System.out.println("Enter reader phone: ");
             String phone = scanner.nextLine();
 
-            ReaderDTO newReaderDTO = new ReaderDTO(name,email,phone);
+            ReaderDTO newReaderDTO = new ReaderDTO(name, email, phone);
             ReaderDTO addedReader = readerController.addReader(newReaderDTO);
 
-            if(addedReader != null){
+            if (addedReader != null) {
                 System.out.println("Reader added successfully!");
                 System.out.println("ID: " + addedReader.getId());
-            }else {
+            } else {
                 System.out.println("Error adding reader.");
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
     }
@@ -251,7 +278,7 @@ public class MainMenu {
             System.out.print("Enter new phone: ");
             String phone = scanner.nextLine();
 
-            ReaderDTO updateReaderDTO = new ReaderDTO(id,name,email,phone);
+            ReaderDTO updateReaderDTO = new ReaderDTO(id, name, email, phone);
             ReaderDTO updatedReader = readerController.update(updateReaderDTO);
 
             if (updatedReader != null) {
@@ -312,11 +339,13 @@ public class MainMenu {
             System.out.println("1. Borrow Book");
             System.out.println("2. Return Book");
             System.out.println("3. View Loans by Reader");
-            System.out.println("4. Back to Main Menu");
+            System.out.println("4. Get All loans");
+            System.out.println("5. Back to Main Menu");
+
             System.out.print("Choose an option: ");
 
             int choice = scanner.nextInt();
-            scanner.nextLine(); 
+            scanner.nextLine();
 
             switch (choice) {
                 case 1:
@@ -329,12 +358,35 @@ public class MainMenu {
                     viewLoansByReader(scanner);
                     break;
                 case 4:
+                    getAllLoans();
+                    break;
+                case 5:
                     return;
                 default:
                     System.out.println("Invalid choice! Please try again.");
             }
         }
 
+    }
+    private void getAllLoans(){
+        System.out.println("\nAll Loans");
+        try{
+            List<LoanDTO> loans = loanController.getAll();
+            if (loans.isEmpty()) {
+                System.out.println("No readers available.");
+            } else {
+                for (LoanDTO loan : loans) {
+                    System.out.println("ID: " + loan.getId() +
+                            ", Book ID: " + loan.getBookId() +
+                            ", Reader ID: " + loan.getReaderId() +
+                            ", Borrow Date: " + loan.getBorrowDate() +
+                            ", Return Date: " + loan.getReturnDate() +
+                            ", Penalty : " + loan.getPenalty());
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 
     private void borrowBook(Scanner scanner) {
@@ -348,39 +400,39 @@ public class MainMenu {
             int readerID = scanner.nextInt();
             scanner.nextLine();
 
-            LoanDTO loanDTO = loanController.borrowBook(bookID,readerID);
+            LoanDTO loanDTO = loanController.borrowBook(bookID, readerID);
 
-            if (loanDTO != null){
+            if (loanDTO != null) {
                 System.out.println("Book borrowed successfully!");
                 System.out.println("Loan ID: " + loanDTO.getId());
                 System.out.println("Borrow Date: " + loanDTO.getBorrowDate());
-            }else {
+            } else {
                 System.out.println("Error borrowing book. Please try again.");
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
     }
 
     private void returnBook(Scanner scanner) {
         System.out.println("\nReturn Book");
-        try{
+        try {
             System.out.println("Enter loan ID: ");
             int loanID = scanner.nextInt();
             scanner.nextLine();
 
             LoanDTO returnLoanDTO = loanController.returnBook(loanID);
 
-            if (returnLoanDTO != null){
+            if (returnLoanDTO != null) {
                 System.out.println("Book returned successfully!");
                 System.out.println("Return Date: " + returnLoanDTO.getReturnDate());
-                if (returnLoanDTO.getPenalty() > 0){
-                    System.out.printf("Penalty: %f $",returnLoanDTO.getPenalty());
+                if (returnLoanDTO.getPenalty() > 0) {
+                    System.out.printf("Penalty: %f $", returnLoanDTO.getPenalty());
                 } else {
                     System.out.println("Error returning book. Please check loan ID.");
                 }
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
     }
@@ -394,19 +446,19 @@ public class MainMenu {
 
             List<LoanDTO> loans = loanController.getLoansByReaderId(readerID);
 
-            if (loans.isEmpty()){
+            if (loans.isEmpty()) {
                 System.out.println("No loans for the reader.");
-            }else {
+            } else {
                 System.out.println("Loans for Reader ID: " + readerID);
-                for (LoanDTO loan : loans){
-                    System.out.println("Loan ID: " +loan.getId() +
-                            ", Book ID: " +loan.getBookId() +
+                for (LoanDTO loan : loans) {
+                    System.out.println("Loan ID: " + loan.getId() +
+                            ", Book ID: " + loan.getBookId() +
                             ", Borrow Date: " + loan.getBorrowDate() +
                             ", Return Date: " + (loan.getBorrowDate() != null ? loan.getReturnDate() : "Not Returned") +
-                            ", Penalty: " +loan.getPenalty() + " $");
+                            ", Penalty: " + loan.getPenalty() + " $");
                 }
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
     }

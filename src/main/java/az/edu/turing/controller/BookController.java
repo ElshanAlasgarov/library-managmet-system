@@ -33,6 +33,16 @@ public class BookController {
         }
     }
 
+    public BookDTO getBookByID(int id){
+        Book book = bookService.getBookById(id);
+        return new BookDTO(
+                book.getId(),
+                book.getTitle(),
+                book.getAuthor(),
+                book.getCategory(),
+                book.isStatus()
+        );
+    }
     public List<BookDTO> getAllBooks() {
         List<Book> books = bookService.getAllBooks();
         return books.stream()
